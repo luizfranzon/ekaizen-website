@@ -10,12 +10,18 @@ import { RouterLink } from "@angular/router";
 })
 export class HeaderComponent {
 
+  isMenuOpen = false
+
+  toggleMobileMenu() {
+    this.isMenuOpen = !this.isMenuOpen
+  }
+
   @HostListener('window:scroll', [])
   onWindowsScroll() {
-    if (document.documentElement.scrollTop >= 300) {
-      return document.getElementById("header")?.classList.add("bg-[#212529]/50")
+    if (document.documentElement.scrollTop >= 80) {
+      return document.getElementById("header")?.classList.add("bg-[#14171a]/50")
     }
 
-    return document.getElementById("header")?.classList.remove("bg-[#212529]/50")
+    return document.getElementById("header")?.classList.remove("bg-[#14171a]/50")
   }
 }
